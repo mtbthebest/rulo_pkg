@@ -1,0 +1,2 @@
+model_checkpoint_path: "/home/mtb/rulo_ws/src/rulo_pkg/rulo_rl/ddpg_tens/model/model_2017_08_09.ckpt"
+all_model_checkpoint_paths: "/home/mtb/rulo_ws/src/rulo_pkg/rulo_rl/ddpg_tens/model/model_2017_08_09.ckpt"

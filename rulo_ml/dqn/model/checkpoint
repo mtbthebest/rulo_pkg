@@ -1,0 +1,2 @@
+model_checkpoint_path: "/home/mtb/rulo_ws/src/rulo_pkg/rulo_ml/dqn/model/var.ckpt"
+all_model_checkpoint_paths: "/home/mtb/rulo_ws/src/rulo_pkg/rulo_ml/dqn/model/var.ckpt"

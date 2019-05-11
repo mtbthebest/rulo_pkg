@@ -1,0 +1,2 @@
+model_checkpoint_path: "/data/barry/data/dqn_data/model/var.ckpt"
+all_model_checkpoint_paths: "/data/barry/data/dqn_data/model/var.ckpt"

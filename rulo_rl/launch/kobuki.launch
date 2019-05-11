@@ -1,0 +1,10 @@
+<launch>
+
+  <include file="$(find  kobuki_description)/launch/view_model.launch" />
+   <include file="$(find  rulo_rl)/launch/fake_move_base_blank_map.launch" /> 
+ <node name="arbotix" pkg="arbotix_python" type="arbotix_driver" output="screen" clear_params="true">
+      <rosparam file="$(find rulo_rl)/config/kobuki_arbotix.yaml" command="load" />
+      <param name="sim" value="true"/>
+  </node>
+  
+</launch>

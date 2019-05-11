@@ -1,0 +1,1 @@
+Stopped at 9:02  because keeps hanging onto some none individuals everywhere in the room

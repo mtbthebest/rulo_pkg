@@ -1,0 +1,46 @@
+#!/usr/bin/env	python
+import numpy as np
+from collections import deque, OrderedDict
+import random
+
+class Memory:
+    def __init__(self, buffer_size, random_seed=1234):
+        self.buffer_size = buffer_size
+        self.count = 0
+        np.random.seed(random_seed)
+
+    def add(self, s_d, s_p,a, r, t, s2_d, s2_p):
+        experience = [[s_d, s_p, a, r, t, s2_d, s2_p]]
+        try:
+            if self.buffer.shape[0] >= self.buffer_size:
+                self.buffer = np.delete(self.buffer, 0, axis=0)
+                self.concat(experience)
+            else:
+                self.concat(experience)
+        except:
+            self.concat(experience)
+        self.count = self.buffer.shape[0]        
+
+    def size(self):       
+        return self.count
+
+    def concat(self, experience):
+        try:
+            self.buffer = np.concatenate((self.buffer, experience), axis=0)
+        except:
+            self.buffer = np.array(experience)
+
+    def sample_batch(self, batch_size):
+        idx = range(self.buffer_size)
+        np.random.shuffle(idx)
+        batch = self.buffer[idx]
+
+        s_batch_d = [elem.tolist() for elem in batch[:, 0]]
+        s_batch_p = [elem.tolist() for elem in batch[:, 1]]
+        a_batch = [elem.tolist() for elem in batch[:, 2]]
+        r_batch = batch[:, 3]
+        t_batch = batch[:, 4]
+        s2_batch_d = [elem.tolist() for elem in batch[:, 5]]
+        s2_batch_p = [elem.tolist() for elem in batch[:, 6]]
+
+        return s_batch_d, s_batch_p,a_batch, r_batch, t_batch, s2_batch_d, s2_batch_p

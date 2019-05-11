@@ -1,0 +1,8 @@
+<launch>
+	<node pkg="joy" name="joy_node" type="joy_node">
+		<remap from="/joy" to="/rulo/joy"/>
+		<param name="autorepeat_rate" value="10" />
+	</node>
+	<node pkg="rulo_joy" name="rulo_inteface_joy" type="joy_interface_mk1.py" output="screen"/>
+	<node pkg="rulo_joy" name="rulo_base_joy" type="base_controller.py"/>
+</launch>
